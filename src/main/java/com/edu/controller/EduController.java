@@ -12,14 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.edu.common.AjaxResult;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 /**
  * 
  * @author yindawei 
- * @date 2018年2月10日上午11:05:24
- * @description 
- * @version
  */
 @Controller
 @RequestMapping(value="/apis/eduShow")
@@ -29,7 +25,6 @@ public class EduController extends BaseController{
 	private StudentService studentService;
 	/**
 	 * 接口跳转ftl统一控制层
-	 * @return
 	 */
 	@RequestMapping(value={"{page}"},method=RequestMethod.GET)
 	public String urlMethod(@PathVariable String page, Model model, HttpServletRequest request){
@@ -38,7 +33,6 @@ public class EduController extends BaseController{
 			Student student = studentService.findOne(Long.valueOf(id));
 			model.addAttribute("student",student);
 			System.out.println(student);
-            System.out.println("dwddwdwd");
 		}
 		return "/student/" + page;
 	}
