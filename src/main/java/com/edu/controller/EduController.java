@@ -38,6 +38,7 @@ public class EduController extends BaseController{
 			Student student = studentService.findOne(Long.valueOf(id));
 			model.addAttribute("student",student);
 			System.out.println(student);
+            System.out.println("dwddwdwd");
 		}
 		return "/student/" + page;
 	}
