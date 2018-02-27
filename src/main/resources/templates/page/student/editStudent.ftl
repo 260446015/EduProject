@@ -129,10 +129,14 @@
                             </div>
                             <div class="am-u-sm-4 am-u-end">
                                 <select id="chinese" class="teacher">
-                                    <#list student.teachers as t>
-                                        <#if t.job == "语文">
-                                            <option value="${t.id}">${t.name}</option>
-                                        </#if>
+                                    <#list chinese as c>
+                                        <#list student.teachers as t>
+                                            <#if t.name == c.name>
+                                                <option value="${c.id}" selected>${c.name}</option>
+                                            <#else >
+                                                <option value="${c.id}">${c.name}</option>
+                                            </#if>
+                                        </#list>
                                     </#list>
                                 </select>
                             </div>
@@ -143,10 +147,14 @@
                             </div>
                             <div class="am-u-sm-4 am-u-end">
                                 <select id="math" class="teacher">
-                                    <#list student.teachers as t>
-                                        <#if t.job == "数学">
-                                            <option value="${t.id}">${t.name}</option>
-                                        </#if>
+                                    <#list math as m>
+                                        <#list student.teachers as t>
+                                            <#if t.name == m.name>
+                                                <option value="${m.id}" selected>${m.name}</option>
+                                            <#else >
+                                                <option value="${m.id}">${m.name}</option>
+                                            </#if>
+                                        </#list>
                                     </#list>
                                 </select>
                             </div>
@@ -157,10 +165,14 @@
                             </div>
                             <div class="am-u-sm-4 am-u-end">
                                 <select id="english" class="teacher">
-                                    <#list student.teachers as t>
-                                        <#if t.job == "外语">
-                                            <option value="${t.id}">${t.name}</option>
-                                        </#if>
+                                    <#list english as e>
+                                        <#list student.teachers as t>
+                                            <#if t.name == e.name>
+                                                <option value="${e.id}" selected>${e.name}</option>
+                                            <#else >
+                                                <option value="${e.id}">${e.name}</option>
+                                            </#if>
+                                        </#list>
                                     </#list>
                                 </select>
                             </div>

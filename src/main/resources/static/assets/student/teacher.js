@@ -26,6 +26,7 @@ function saveTeacher() {
         url: '/apis/teacher/addTeacher.json',
         success: function (res) {
             alert(res.data);
+            window.location.href = '/apis/eduShow/showTeacher.html';
         }
     })
 }

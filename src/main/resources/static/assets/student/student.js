@@ -36,6 +36,7 @@ function saveStudent() {
         url: '/apis/student/addStudent.json',
         success: function (res) {
             alert(res.data);
+            window.location.href = '/apis/eduShow/showStudent.html';
         }
     })
 }
