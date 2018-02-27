@@ -29,7 +29,7 @@ public class Teacher implements Serializable {
     /**
      * 工资
      */
-    private double salary;
+    private String salary;
     /**
      * 评分
      */
@@ -47,11 +47,11 @@ public class Teacher implements Serializable {
      */
     private String job;
 
-    public double getSalary() {
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
 

@@ -126,8 +126,13 @@
                                 语文
                             </div>
                             <div class="am-u-sm-4 am-u-end">
-                                <select id="chinese">
+                                <select id="chinese" class="teacher">
                                     <option>---</option>
+                                    <#if chinese??>
+                                        <#list chinese as c>
+                                            <option value="${c.id}">${c.name}</option>
+                                        </#list>
+                                    </#if>
                                 </select>
                             </div>
                         </div>
@@ -136,8 +141,13 @@
                                 数学
                             </div>
                             <div class="am-u-sm-4 am-u-end">
-                                <select id="math">
+                                <select id="math" class="teacher">
                                     <option>---</option>
+                                    <#if math??>
+                                        <#list math as m>
+                                            <option value="${m.id}">${m.name}</option>
+                                        </#list>
+                                    </#if>
                                 </select>
                             </div>
                         </div>
@@ -146,8 +156,13 @@
                                 外语
                             </div>
                             <div class="am-u-sm-4 am-u-end">
-                                <select id="english">
+                                <select id="english" class="teacher">
                                     <option>---</option>
+                                    <#if english??>
+                                        <#list english as e>
+                                            <option value="${e.id}">${e.name}</option>
+                                        </#list>
+                                    </#if>
                                 </select>
                             </div>
                         </div>

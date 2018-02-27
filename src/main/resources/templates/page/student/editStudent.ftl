@@ -36,15 +36,16 @@
                         <div class="am-u-sm-2 am-text-right">学校</div>
                         <div class="am-u-sm-10">
                             <div class="am-u-sm-4">
-                                <input type="text" class="am-input-sm" id="school">
+                                <input type="text" class="am-input-sm" id="school" value="${student.school}"/>
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" value="${student.id}" id="id"/>
                     <div class="am-g am-margin-top">
                         <div class="am-u-sm-2 am-text-right">年级</div>
                         <div class="am-u-sm-10">
                             <div class="am-u-sm-4">
-                                <input type="text" class="am-input-sm" id="gradeLevel">
+                                <input type="text" class="am-input-sm" id="gradeLevel" value="${student.gradeLevel}"/>
                             </div>
                         </div>
                     </div>
@@ -52,7 +53,7 @@
                         <div class="am-u-sm-2 am-text-right">班级</div>
                         <div class="am-u-sm-10">
                             <div class="am-u-sm-4">
-                                <input type="text" class="am-input-sm" id="nomalClass"/>
+                                <input type="text" class="am-input-sm" id="nomalClass" value="${student.nomalClass}"/>
                             </div>
                         </div>
                     </div>
@@ -60,17 +61,18 @@
                         <div class="am-u-sm-2 am-text-right">姓名</div>
                         <div class="am-u-sm-10">
                             <div class="am-u-sm-4">
-                                <input type="text" class="am-input-sm" id="name">
+                                <input type="text" class="am-input-sm" id="name" value="${student.name}"/>
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" value="${student.id}" id="id"/>
                     <div class="am-g am-margin-top">
                         <div class="am-u-sm-2 am-text-right">性别</div>
                         <div class="am-u-sm-10">
                             <div class="am-u-sm-4">
                                 <select id="sex">
-                                    <option value="男" selected>男</option>
-                                    <option value="女">女</option>
+                                    <option value="男" <#if student.sex == '男'> selected </#if>>男</option>
+                                    <option value="女" <#if student.sex == '女'> selected </#if>>女</option>
                                 </select>
                             </div>
                         </div>
@@ -79,7 +81,7 @@
                         <div class="am-u-sm-2 am-text-right">年龄</div>
                         <div class="am-u-sm-10">
                             <div class="am-u-sm-4">
-                                <input type="text" class="am-input-sm" id="age">
+                                <input type="text" class="am-input-sm" id="age" value="${student.age}">
                             </div>
                         </div>
                     </div>
@@ -92,7 +94,7 @@
                                 联系方式
                             </div>
                             <div class="am-u-sm-4">
-                                <input type="text" class="am-input-sm" id="phone"/>
+                                <input type="text" class="am-input-sm" id="phone" value="${student.phone}"/>
                             </div>
                             <div class="am-u-sm-6">*必填，不可重复</div>
                         </div>
@@ -101,7 +103,7 @@
                                 家庭住址
                             </div>
                             <div class="am-u-sm-4">
-                                <input type="text" class="am-input-sm" id="address"/>
+                                <input type="text" class="am-input-sm" id="address" value="${student.address}"/>
                             </div>
                             <div class="am-u-sm-6">*必填</div>
                         </div>
@@ -112,7 +114,7 @@
                                 学习情况
                             </div>
                             <div class="am-u-sm-10">
-                                <textarea rows="10" placeholder="请填写实际学习情况" id="description"></textarea>
+                                <textarea rows="10" placeholder="请填写实际学习情况" id="description">${student.description}</textarea>
                             </div>
                         </div>
 
@@ -126,8 +128,12 @@
                                 语文
                             </div>
                             <div class="am-u-sm-4 am-u-end">
-                                <select id="chinese">
-                                    <option>---</option>
+                                <select id="chinese" class="teacher">
+                                    <#list student.teachers as t>
+                                        <#if t.job == "语文">
+                                            <option value="${t.id}">${t.name}</option>
+                                        </#if>
+                                    </#list>
                                 </select>
                             </div>
                         </div>
@@ -136,8 +142,12 @@
                                 数学
                             </div>
                             <div class="am-u-sm-4 am-u-end">
-                                <select id="math">
-                                    <option>---</option>
+                                <select id="math" class="teacher">
+                                    <#list student.teachers as t>
+                                        <#if t.job == "数学">
+                                            <option value="${t.id}">${t.name}</option>
+                                        </#if>
+                                    </#list>
                                 </select>
                             </div>
                         </div>
@@ -146,8 +156,12 @@
                                 外语
                             </div>
                             <div class="am-u-sm-4 am-u-end">
-                                <select id="english">
-                                    <option>---</option>
+                                <select id="english" class="teacher">
+                                    <#list student.teachers as t>
+                                        <#if t.job == "外语">
+                                            <option value="${t.id}">${t.name}</option>
+                                        </#if>
+                                    </#list>
                                 </select>
                             </div>
                         </div>

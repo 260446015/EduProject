@@ -61,6 +61,7 @@ public class StudentServiceImpl implements StudentService {
                 teachers.add(one);
             });
             data.setTeachers(teachers);
+            studentRepository.save(data);
             flag = true;
         } catch (Exception e) {
             log.error("保存学生失败!", e.getMessage());

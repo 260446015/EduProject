@@ -3,6 +3,7 @@ package com.edu.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.edu.common.AjaxResult;
 import com.edu.entity.Teacher;
+import com.edu.entity.dto.TeacherIput;
 import com.edu.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,8 +24,12 @@ public class TeacherController extends BaseController{
     public AjaxResult addTeacher(@RequestBody Teacher teacher){
         return success(teacherService.addTeacher(teacher));
     }
-    @RequestMapping(value = "/findTeacherGroup.json",method = {RequestMethod.GET})
-    public AjaxResult findTeacherGroup(){
-        return success(teacherService.findTeacherGroup());
+    @RequestMapping(value = "/findByJob.json",method = {RequestMethod.GET})
+    public AjaxResult findByJob(String job){
+        return success(teacherService.findByJob(job));
+    }
+    @RequestMapping(value = "/showTeacher.json",method = {RequestMethod.POST})
+    public AjaxResult showTeacher(@RequestBody TeacherIput teacher){
+        return success(teacherService.showTeacher(teacher));
     }
 }
