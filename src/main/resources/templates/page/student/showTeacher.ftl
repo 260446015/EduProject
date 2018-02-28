@@ -33,14 +33,11 @@
                         </div>
 
                         <div class="am-form-group am-margin-left am-fl">
-                            <select>
+                            <select class="select">
                                 <option value="option1">所有类别</option>
-                                <option value="option2">IT业界</option>
-                                <option value="option3">数码产品</option>
-                                <option value="option3">笔记本电脑</option>
-                                <option value="option3">平板电脑</option>
-                                <option value="option3">只能手机</option>
-                                <option value="option3">超极本</option>
+                                <#list job as j>
+                                    <option value="${j}">${j}</option>
+                                </#list>
                             </select>
                         </div>
                     </div>

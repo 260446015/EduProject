@@ -34,22 +34,27 @@ public class EduController extends BaseController{
 	 */
 	@RequestMapping(value={"{page}"},method=RequestMethod.GET)
 	public String urlMethod(@PathVariable String page, Model model, HttpServletRequest request){
-		if(page.equalsIgnoreCase("editStudent") || page.equalsIgnoreCase("addStudent")){
-			if(page.equalsIgnoreCase("editStudent")){
+		if(page.equalsIgnoreCase("editStudent") || page.equalsIgnoreCase("addStudent") || page.equalsIgnoreCase("showStudentDetail")){
+			if(page.equalsIgnoreCase("editStudent") || page.equalsIgnoreCase("showStudentDetail")){
 				String id = request.getParameter("id");
 				Student student = studentService.findOne(Long.valueOf(id));
 				model.addAttribute("student",student);
 			}
 			List<Teacher> chinese = teacherService.findByJob("语文");
 			List<Teacher> math = teacherService.findByJob("数学");
-			List<Teacher> english = teacherService.findByJob("外语");
+			List<Teacher> english = teacherService.findByJob("英语");
 			model.addAttribute("chinese",chinese);
 			model.addAttribute("math",math);
 			model.addAttribute("english",english);
-		}else if(page.equalsIgnoreCase("editTeacher")){
-			String id = request.getParameter("id");
-			Teacher teacher = teacherService.findOne(Long.valueOf(id));
-			model.addAttribute("teacher",teacher);
+		}else if(page.equalsIgnoreCase("editTeacher") || page.equalsIgnoreCase("showTeacher")){
+			if(page.equalsIgnoreCase("editTeacher")){
+				String id = request.getParameter("id");
+				Teacher teacher = teacherService.findOne(Long.valueOf(id));
+				model.addAttribute("teacher",teacher);
+
+			}
+			List<String> group = teacherService.findGroup();
+			model.addAttribute("job",group);
 		}
 		return "/student/" + page;
 	}

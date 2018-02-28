@@ -63,10 +63,10 @@ function showStudent(_pageNum,_pageSize) {
                 var html = '';
                 var arr = res.data.content;
                 for(var i= 0;i<arr.length;i++){
-                    html += '<tr><td><input type="checkbox" /></td><td>'+arr[i].id+'</td><td><a href="#">'+arr[i].name+'</a></td>' +
+                    html += '<tr><td><input type="checkbox" /></td><td>'+arr[i].id+'</td><td><a href="/apis/eduShow/showStudentDetail.html?id='+arr[i].id+'">'+arr[i].name+'</a></td>' +
                             '<td>'+arr[i].school+'</td><td>'+arr[i].gradeLevel+'</td><td>'+arr[i].nomalClass+'</td><td>'+arr[i].phone+'</td>' +
                             '<td><div class="am-btn-toolbar"><div class="am-btn-group am-btn-group-xs"><button class="am-btn am-btn-default am-btn-xs am-text-secondary edit"><span class="am-icon-pencil-square-o"></span><a href="/apis/eduShow/editStudent.html?id='+arr[i].id+'">编辑</a></button>' +
-                            '<button class="am-btn am-btn-default am-btn-xs"><span class="am-icon-copy"></span> 复制</button><button class="am-btn am-btn-default am-btn-xs am-text-danger delete"><span class="am-icon-trash-o"></span> 删除</button></div></div></td></tr>';
+                            '<button class="am-btn am-btn-default am-btn-xs am-text-danger delete"><span class="am-icon-trash-o"></span> 删除</button></div></div></td></tr>';
                 }
                 $("#student").html(html);
                 if(res.data.totalPages>1){

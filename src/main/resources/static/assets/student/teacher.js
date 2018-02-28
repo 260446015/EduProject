@@ -42,8 +42,8 @@ var options = {
     }
 };
 
-function showTeacher(_pageNum, _pageSize) {
-    var req = {"pageSize": _pageSize, "pageNum": _pageNum};
+function showTeacher(_pageNum, _pageSize,_searchName) {
+    var req = {"pageSize": _pageSize, "pageNum": _pageNum,"searchName":_searchName};
     $.ajax({
         type: 'post',
         contentType: 'application/json',
@@ -55,7 +55,7 @@ function showTeacher(_pageNum, _pageSize) {
                 var html = '';
                 var arr = res.data.content;
                 for (var i = 0; i < arr.length; i++) {
-                    html += '<tr><td><input type="checkbox" /></td><td>' + arr[i].id + '</td><td><a href="#">' + arr[i].name + '</a></td>' +
+                    html += '<tr><td><input type="checkbox" /></td><td>' + arr[i].id + '</td><td><a href="/apis/eduShow/showTeacherDetail.html?id='+arr[i].id+'">' + arr[i].name + '</a></td>' +
                         '<td>' + arr[i].sex + '</td><td>' + arr[i].address + '</td><td>' + arr[i].salary + '</td><td>' + arr[i].score + '</td>' +
                         '<td>' + arr[i].phone + '</td><td>' + arr[i].job + '</td>' +
                         '<td><div class="am-btn-toolbar"><div class="am-btn-group am-btn-group-xs"><button class="am-btn am-btn-default am-btn-xs am-text-secondary edit"><span class="am-icon-pencil-square-o"></span><a href="/apis/eduShow/editTeacher.html?id=' + arr[i].id + '">编辑</a></button>' +
@@ -86,7 +86,10 @@ function initPage() {
         deleteStudent(id);
     })
     $(".add").on('click', function () {
-        window.location.href = '/apis/eduShow/addStudent.html';
+        window.location.href = '/apis/eduShow/addTeacher.html';
+    })
+    $(".select").change(function () {
+        showTeacher(pageNum,pageSize,$(this).val());
     })
     $(".am-btn-xs").on('click', function () {
         var val = $(this).text();

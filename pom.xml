@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.edu</groupId>
   <artifactId>EduProject</artifactId>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>EduProject Maven Webapp</name>
   <url>http://maven.apache.org</url>
@@ -123,7 +123,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.edu.EduProject.Application</mainClass>
+					<mainClass>com.edu.Application</mainClass>
 				</configuration>
 			</plugin>
 			<plugin>

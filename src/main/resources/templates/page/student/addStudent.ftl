@@ -153,7 +153,7 @@
                         </div>
                         <div class="am-g am-margin-top-sm">
                             <div class="am-u-sm-2 am-text-right">
-                                外语
+                                英语
                             </div>
                             <div class="am-u-sm-4 am-u-end">
                                 <select id="english" class="teacher">

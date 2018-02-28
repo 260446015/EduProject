@@ -6,6 +6,7 @@ import com.edu.entity.Teacher;
 import com.edu.entity.dto.TeacherIput;
 import com.edu.repository.TeacherRepository;
 import com.edu.service.TeacherService;
+import com.github.pagehelper.util.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,11 +45,19 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public Page<Teacher> showTeacher(TeacherIput teacher) {
         PageRequest pageRequest = new PageRequest(teacher.getPageNum(),teacher.getPageSize());
+        /*if(StringUtil.isEmpty(teacher.getSearchName())){
+            teacherRepository.findBy
+        }*/
         return teacherRepository.findAll(pageRequest);
     }
 
     @Override
     public Teacher findOne(long id) {
         return teacherRepository.findOne(id);
+    }
+
+    @Override
+    public List<String> findGroup() {
+        return teacherRepository.findGroup();
     }
 }

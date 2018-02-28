@@ -15,4 +15,6 @@ public interface TeacherService {
     Page<Teacher> showTeacher(TeacherIput teacher);
 
     Teacher findOne(long id);
+
+    List<String> findGroup();
 }
